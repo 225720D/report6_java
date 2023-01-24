@@ -10,17 +10,9 @@ public class Main {
     public static void main(String[] args) throws Exception {
         QMaker qMaker = new QMaker();
         qMaker.quizList();
-        // QList qList = new QList();
-        // for(int i = 0;i < 10; i++){
-        // qList.select(i);
-        // qList.a.clear();
+
     }
 }
-
-// Scanner sc = new Scanner(System.in);
-
-// QList2 QList2 = new QList2();
-// // QMaker QMaker = new QMaker();
 
 // System.out.println( QList2.subject + "の問題です");
 // System.out.println("計60問あります");
