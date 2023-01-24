@@ -5,25 +5,28 @@ import java.util.Arrays;
 import java.util.Collections;
 
 public class QList {
-    QComparison qComparison = new QComparison();
+
     /**
-     * 問題集,答えのリスト
+     * 科目、問題集,答えのリスト
      * ＋シャッフルに使うリスト
      */
+    public String subject = "英語";
     public String[] questions = { "cat", "dog", "bat", "eagle", "lion", "tiger", "bird", "rabbit" };
     public ArrayList<String> Q_ArrayShuffle = new ArrayList(Arrays.asList(questions));
-    public ArrayList<String> Q_ArrayIndex = new ArrayList(Arrays.asList(questions));
-    public String[] answer = { "ねこ", "イッヌ", "コウモリ", "鷹", "シーサー", "虎", "鳥", "うさぎ" };
-    public ArrayList<String> A_Array = new ArrayList(Arrays.asList(answer));
-    public ArrayList<String> Select_Array = new ArrayList();
 
     void shuffleQ_Array() {
         Collections.shuffle(Q_ArrayShuffle);
     }
 
+    public ArrayList<String> Q_ArrayIndex = new ArrayList(Arrays.asList(questions));
+    public String[] answer = { "ねこ", "イッヌ", "コウモリ", "鷹", "シーサー", "虎", "鳥", "うさぎ" };
+    public ArrayList<String> A_Array = new ArrayList(Arrays.asList(answer));
+
     void shuffleA_Array() {
         Collections.shuffle(A_Array);
     }
+
+    public ArrayList<String> Select_Array = new ArrayList();
 
     void shuffle_Select_Array() {
         Collections.shuffle(Select_Array);
@@ -42,7 +45,8 @@ public class QList {
     }
 
     /**
-     * @param i 重複をなくす
+     * @param i 重複をなくすために取り除く
+     *          +元に戻す
      */
     void remove(int i) {
         String remove_answer;
@@ -56,19 +60,8 @@ public class QList {
         A_Array.add(remove_answer);
     }
 
-    void solve(int i) {
-        qComparison.input();
-        if (Select_Array.indexOf(answer[Q_ArrayIndex.indexOf(Q_ArrayShuffle.get(i))])
-                + 1 == qComparison.Select_Answer) {
-            System.out.println("正解！！");
-        } else {
-            System.out.println("残念！！不正解");
-            System.out
-                    .println("正解は" + (Select_Array.indexOf(answer[Q_ArrayIndex.indexOf(Q_ArrayShuffle.get(i))]) + 1)
-                            + "の"
-                            + answer[Q_ArrayIndex.indexOf(Q_ArrayShuffle.get(i))]);
-        }
-
-    }
+    /**
+     * @param i 正誤の判定
+     */
 
 }
