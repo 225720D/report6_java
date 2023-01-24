@@ -11,6 +11,8 @@ plugins {
     id 'application'
 }
 
+sourceCompatibility = 10 
+
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
@@ -26,10 +28,16 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'jp.ac.uryukyu.ie.e225720.App'
+    mainClass = 'Main'
 }
 
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        attributes  "Main-Class": "Main"
+    }
 }
