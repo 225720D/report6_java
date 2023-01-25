@@ -6,6 +6,6 @@ public class Main {
         Qstart qstart = new Qstart();
         qstart.start();
         qMaker.quizList();
-
+        qstart.finish();
     }
 }

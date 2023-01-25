@@ -4,8 +4,14 @@ import java.util.*;
 
 public class QMaker {
     QList qList = new QList();
+    /**
+     * nextLineを代入する変数
+     */
     public int Select_Answer;
 
+    /**
+     * 問題を出し答え合わせまでするメソッド
+     */
     public void quizList() {
         qList.shuffleQ_Array();
         for (int i = 0; i < qList.questions.length; i++) {
@@ -17,6 +23,7 @@ public class QMaker {
             }
             qList.shuffle_Select_Array();
             qList.move(i);
+            System.out.println("");
             System.out.println(i + 1 + "問目");
             System.out.println(qList.Q_ArrayShuffle.get(i));
             for (int j = 0; j < 4; j++) {
@@ -44,6 +51,12 @@ public class QMaker {
             Select_Answer = 0;
             qList.Select_Array.clear();
         }
+    }
+
+    /**
+     * 問題の解答結果を表示
+     */
+    public void finish() {
         System.out.println("当てた回数: " + qList.count + "問/" + qList.Q_ArrayIndex.size() + "問中");
         System.out.println("正答率 " + (qList.count / qList.Q_ArrayIndex.size()) * 100 + "%");
     }
